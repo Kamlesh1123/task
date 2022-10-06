@@ -1,0 +1,22 @@
+<%#debugger %>
+<% @entry.comments.each do |comment| %>
+<p>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+</p>
+
+
+<li><%= link_to "Edit", edit_entry_path(@entry) %></li>
+
+<p>
+  <%= link_to "Destroy Comment", [comment.entry, comment], data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %>
+</p>
+<% end %>

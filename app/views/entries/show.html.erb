@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @entry.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @entry.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @entry.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @entry.email %>
+</p>
+
+<p>
+<%= image_tag(@entry.image, style:"width:auto, objectFit:content") %>
+</p>
+
+<%#= button_to 'Like', entry_likes_path(@entry), method: :post %>
+
+<p><%= @entry.likes.count %> <%= (@entry.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+<% pre_like = @entry.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', entry_like_path(@entry, pre_like), remote: true, method: :delete %>
+<% else %>
+  <i> <%= button_to 'Like', entry_likes_path(@entry), remote: true, method: :post %></i>
+<% end %>
+
+<h2>Comments</h2>
+<div id="abc">
+
+<%= render @entry.comments %>
+</div>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
+
+<%= link_to 'Edit', edit_entry_path(@entry)%> |<%= link_to 'Back', entries_path %>
+
