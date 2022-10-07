@@ -48,6 +48,7 @@ class EntriesController < ApplicationController
     @entry.email = params[:entry][:email]
     @entry.phone = params[:entry][:phone]
     @entry.image = params[:entry][:image]
+    @entry.country = params[:entry][:country]
     @entry.save
     
     respond_to do |format|
@@ -82,7 +83,6 @@ end
 
 private
   def entry_params
-
-      params.require(:entry).permit(:name, :email, :address, :phone, :image)
+  params.require(:entry).permit(:name, :email, :address, :phone, :image, :country)
   end
 end
