@@ -21,8 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* some changes 
 # task
+sduivhsaidufvhjksdhnvhkl
 
 conflict kar rhe hai
 ilhjojosjd
