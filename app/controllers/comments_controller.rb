@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
 
-
+  def show
+    @comment = Comment.find(params[:ids])
+  end
 
  def create
   #debugger
