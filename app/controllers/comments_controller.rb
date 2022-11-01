@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 
  def create
   #debugger
-  @entry = Entry.find(params[:entry_id])
+  
   @comment= @entry.comments.create(comment_params)
   @comment.user_id = current_user.id
   @comment.save
